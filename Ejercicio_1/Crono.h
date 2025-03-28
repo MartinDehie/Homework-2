@@ -21,13 +21,11 @@ class Crono{
         Crono(int HH,int MM);
         Crono(int HH,int MM,int SS);
         Crono(int HH,int MM,int SS, string p);
-        void setHH(int HH);
-        void setMM(int MM);
-        void setSS(int SS);
-        void setp(string p);
+        void setHH();
+        void setMM();
+        void setSS();
+        void setp();
         void mostrarCrono();
-
-    
-
+        void menu();
 }; 
 #endif

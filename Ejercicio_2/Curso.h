@@ -2,6 +2,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
+#include <limits>
+
 
 using namespace std;
 
@@ -38,9 +41,12 @@ class Curso
 
     public:
 
-        void add_Alumno(Estudiante alumno);
-        void delete_Alumno(Estudiante alumno);
-        void mostrar_Alumnos();
+        bool add_Alumno(Estudiante alumno);
+        bool delete_Alumno(int legajo);
+        void mostrar_curso();
+        int busqueda(int legajo);
+        bool is_full();
+        void menu();
 
 };
 

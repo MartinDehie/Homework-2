@@ -2,14 +2,32 @@
 #include <limits>
         Crono::Crono(): horas(0), minutos(0), segundos(0), periodo(""){}
 
-        Crono::Crono(int HH): horas(HH), minutos(0), segundos(0), periodo(""){}
+        Crono::Crono(int HH): horas(HH), minutos(0), segundos(0), periodo(""){ValidarDatos(horas,minutos,segundos,periodo);}
 
-        Crono::Crono(int HH,int MM): horas(HH), minutos(MM), segundos(0), periodo(""){}
+        Crono::Crono(int HH,int MM): horas(HH), minutos(MM), segundos(0), periodo(""){ValidarDatos(horas,minutos,segundos,periodo);}
 
-        Crono::Crono(int HH,int MM,int SS): horas(HH), minutos(MM), segundos(SS), periodo(""){}
+        Crono::Crono(int HH,int MM,int SS): horas(HH), minutos(MM), segundos(SS), periodo(""){ValidarDatos(horas,minutos,segundos,periodo);}
 
-        Crono::Crono(int HH,int MM,int SS, string p): horas(HH), minutos(MM), segundos(SS), periodo(p){}
+        Crono::Crono(int HH,int MM,int SS, string p): horas(HH), minutos(MM), segundos(SS), periodo(p){ValidarDatos(horas,minutos,segundos,periodo);}
 
+        void Crono::ValidarDatos(int HH, int MM, int SS, const string& p){
+          if (p != "" && p != "a.m." && p != "p.m.") {
+            throw runtime_error("Periodo inválido. Debe ser 'a.m.' o 'p.m.'.");
+          }
+          if (p == "") {  // Formato 24 horas
+              if (HH < 0 || HH > 23) throw runtime_error("Hora inválida (0-23).");
+          } else {  // Formato 12 horas
+              if (HH < 1 || HH > 12) throw runtime_error("Hora inválida (1-12)");
+          }
+          if (MM < 0 || MM > 59) throw runtime_error("Minutos inválidos (0-59).");
+          if (SS < 0 || SS > 59) throw runtime_error("Segundos inválidos (0-59).");
+      
+          horas = HH;
+          minutos = MM;
+          segundos = SS;
+          periodo = p;
+        }
+        
         void Crono::mostrarCrono(){        
             cout << setw(2) << setfill('0') << horas << ":"
               << setw(2) << setfill('0') << minutos << ":"

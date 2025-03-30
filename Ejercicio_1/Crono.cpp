@@ -1,5 +1,4 @@
 #include "Crono.h"
-#include <limits>
         Crono::Crono(): horas(0), minutos(0), segundos(0), periodo(""){}
 
         Crono::Crono(int HH): horas(HH), minutos(0), segundos(0), periodo(""){ValidarDatos(horas,minutos,segundos,periodo);}

@@ -1,6 +1,7 @@
 #include <iomanip>
 #include <iostream>
 #include <string>
+#include <limits>
 
 using namespace std;
 
@@ -13,11 +14,11 @@ class Crono{
         int minutos;
         int segundos;
         string periodo;
-        void ValidarDatos(int HH, int MM, int SS, const string& p);
         void setHH();
         void setMM();
         void setSS();
         void setp();
+        void ValidarDatos(int HH, int MM, int SS, const string& p);
         
     public:
 

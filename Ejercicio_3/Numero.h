@@ -13,9 +13,7 @@ class Entero : public Numero
 private:
     int valor;
 public:
-    Entero(int v);
-    Numero suma()
-    
+    Entero(int v);    
 };
 
 class Real: public Numero
@@ -32,8 +30,7 @@ class Imaginario: public Numero
 private:
     double real,imaginario;
 public:
-    Imaginario(double real, double imaginario);
-
+    Imaginario(double r, double i);
 };
 
 

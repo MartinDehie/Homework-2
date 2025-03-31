@@ -14,7 +14,7 @@ using namespace std;
 
 struct notas{
     string materia;
-    float nota;
+    double nota;
 };
 
 class Estudiante{
@@ -22,7 +22,7 @@ class Estudiante{
 
         string nombre;
         int legajo;
-        float prom;
+        double prom;
         vector<notas> calificaciones;
 
     public:
@@ -30,7 +30,7 @@ class Estudiante{
         Estudiante(string NN,int LL, vector<notas> CC);
         string get_nombre();
         int get_legajo();
-        float get_prom();
+        double get_prom();
 
 };
 class Curso

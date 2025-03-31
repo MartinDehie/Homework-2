@@ -3,8 +3,8 @@
     Estudiante::Estudiante(string NN,int LL, vector<notas> CC):nombre(NN),legajo(LL),calificaciones(CC){}
     string Estudiante::get_nombre(){return nombre;}
     int Estudiante::get_legajo(){return legajo;}
-    float Estudiante::get_prom(){
-        float suma = 0;
+    double Estudiante::get_prom(){
+        double suma = 0;
         for(notas i : calificaciones){
             suma += i.nota;
         }
@@ -48,7 +48,7 @@
 
         string NN;
         int LL;
-        float nota;
+        double nota;
         string materia;
         vector<notas> CC;
         bool j;
@@ -60,10 +60,10 @@
             cout << R"(Seleccione entre las siguientes opciones: 
   1: Inscribir a un alumno.
   2: Desinscribir a un alumno.
-  3: Buscar alumno
+  3: Buscar alumno.
   4: capacidad del curso.
   5: Imprimir el curso.
-  6: Salir)"<< endl;
+  6: Salir.)"<< endl;
             cin >> opciones;
   
             try{

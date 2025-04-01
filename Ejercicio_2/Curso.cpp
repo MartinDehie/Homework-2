@@ -11,8 +11,8 @@
         prom = suma/calificaciones.size();
         return prom;
     }
-    bool Curso::add_Alumno(Estudiante alumno){
-        int i = busqueda(alumno.get_legajo());
+    bool Curso::add_Alumno(shared_ptr<Estudiante> alumno){
+        int i = busqueda(alumno->get_legajo());
         if(i == -1 && Alumnos.size() < 20){
             Alumnos.push_back(alumno);
             return true;}
@@ -26,18 +26,18 @@
         }
         return false;
     }
-    bool comparar_por_nombre(Estudiante a, Estudiante b) {
-        return a.get_nombre() < b.get_nombre();
+    bool comparar_por_nombre(shared_ptr<Estudiante> a, shared_ptr<Estudiante> b) {
+        return a->get_nombre() < b->get_nombre();
     }
     void Curso::mostrar_curso(){
         sort(Alumnos.begin(), Alumnos.end(), comparar_por_nombre);
         for(int i = 0;i<Alumnos.size();i++)
-            cout << Alumnos[i].get_nombre() << endl;
+            cout << Alumnos[i]->get_nombre() << endl;
         return;
     }
     int Curso::busqueda(int legajo){
         for(int i = 0;i< Alumnos.size();i++){
-            if(Alumnos[i].get_legajo() == legajo)
+            if(Alumnos[i]->get_legajo() == legajo)
                 return i;
         }return -1;
     }
@@ -94,7 +94,7 @@
                     }
                     e = Estudiante(NN, LL, CC);
                     
-                    j = add_Alumno(e);
+                    j = add_Alumno(make_shared<Estudiante>(e));
                     if (j)
                         cout <<"Alumno inscripto con éxito"<< endl;
                     else
@@ -138,4 +138,12 @@
                   break;
               }
             }
+    }
+
+    Curso Curso::copy(Curso c){
+        Curso nuevoCurso;
+        for (shared_ptr<Estudiante> alumno : c.Alumnos) {
+            nuevoCurso.Alumnos.push_back(make_shared<Estudiante>(*alumno));
+        }
+        return nuevoCurso;
     }

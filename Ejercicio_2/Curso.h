@@ -6,33 +6,13 @@
 #include <limits>
 #include <memory>
 
+#include "Estudiante.h" 
+
 using namespace std;
 
 #ifndef CURSO_H
 #define CURSO_H
 
-
-struct notas{
-    string materia;
-    double nota;
-};
-
-class Estudiante{
-    private:
-
-        string nombre;
-        int legajo;
-        double prom;
-        vector<notas> calificaciones;
-
-    public:
-
-        Estudiante(string NN,int LL, vector<notas> CC);
-        string get_nombre();
-        int get_legajo();
-        double get_prom();
-
-};
 class Curso
 {
     private:

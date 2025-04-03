@@ -5,7 +5,11 @@ using namespace std;
 
 class Numero{
     public:
-    virtual void showValue() = 0;
+    virtual void toString() = 0;
+    virtual Numero& operator+(Numero&) = 0;
+    virtual Numero& operator-(Numero&) = 0;
+    virtual Numero& operator*(Numero&) = 0;
+    virtual Numero& operator/(Numero&) = 0;
 };
 class Entero : public Numero
 {
@@ -13,12 +17,12 @@ private:
     int valor;
 public:
     Entero(int v);
-    Entero& operator+ (Entero& e);
-    Entero& operator- (Entero& e);
-    Entero& operator* (Entero& e);
-    Entero& operator/ (Entero& e);
+    Entero& operator+ (Numero& v) override;
+    Entero& operator- (Numero& v) override;
+    Entero& operator* (Numero& v) override;
+    Entero& operator/ (Numero& v) override;
     int getValue();
-    void showValue() override;    
+    void toString() override;    
 };
 
 
@@ -28,12 +32,12 @@ private:
     double valor;
 public:
     Real(double v);
-    Real& operator+ (Real& r);
-    Real& operator- (Real& r);
-    Real& operator* (Real& r);
-    Real& operator/ (Real& r);
+    Real& operator+ (Numero& v) override;
+    Real& operator- (Numero& v) override;
+    Real& operator* (Numero& v) override;
+    Real& operator/ (Numero& v) override;
     double getValue();
-    void showValue() override;    
+    void toString() override;    
 
 };
 
@@ -43,13 +47,13 @@ private:
     double real,imaginario;
 public:
     Imaginario(double r, double i);
-    Imaginario& operator+ (Imaginario& e);
-    Imaginario& operator- (Imaginario& e);
-    Imaginario& operator* (Imaginario& e);
-    Imaginario& operator/ (Imaginario& e);
+    Imaginario& operator+ (Numero& v) override;
+    Imaginario& operator- (Numero& v) override;
+    Imaginario& operator* (Numero& v) override;
+    Imaginario& operator/ (Numero& v) override;
     double getReal();
     double getImaginario();
-    void showValue() override;  
+    void toString() override;  
 };
 
 

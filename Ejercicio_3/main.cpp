@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Numero.h"
 
 int main(){

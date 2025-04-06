@@ -3,6 +3,8 @@
 #include <string>
 #include <limits>
 
+#pragma once
+
 using namespace std;
 
 #ifndef CRONO_H

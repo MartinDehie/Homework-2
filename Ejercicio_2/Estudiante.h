@@ -5,6 +5,8 @@
 #ifndef ESTUDIANTE_H
 #define ESTUDIANTE_H
 
+#pragma once
+
 using namespace std;
 
 struct notas{

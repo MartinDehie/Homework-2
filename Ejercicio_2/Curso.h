@@ -8,6 +8,8 @@
 
 #include "Estudiante.h" 
 
+#pragma once
+
 using namespace std;
 
 #ifndef CURSO_H
@@ -25,6 +27,7 @@ class Curso
         bool add_Alumno(shared_ptr<Estudiante> alumno);
         bool delete_Alumno(int legajo);
         void mostrar_curso();
+        string get_nombre();
         int busqueda(int legajo);
         bool is_full();
         Curso copy(Curso c);

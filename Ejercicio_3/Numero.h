@@ -3,6 +3,8 @@
 
 using namespace std;
 
+#pragma once
+
 class Numero{
     public:
     virtual void toString() = 0;

@@ -3,7 +3,7 @@
 
     Curso::Curso(string NN):Nombre(NN){}
     Curso::Curso():Nombre(""){}
-
+    string Curso:: get_nombre(){return Nombre;}
     bool Curso::add_Alumno(shared_ptr<Estudiante> alumno){
         int i = busqueda(alumno->get_legajo());
         if(i == -1 && Alumnos.size() < 20){

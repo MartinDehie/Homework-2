@@ -11,3 +11,10 @@
         prom = suma/calificaciones.size();
         return prom;
     }
+    bool Estudiante:: operator<(const Estudiante& otro) const {
+        return this->nombre < otro.nombre;
+    }
+    ostream& operator<<(ostream& os, const Estudiante& est) {
+        os << "Nombre: " << est.nombre << ", Legajo: " << est.legajo;
+        return os;
+    }

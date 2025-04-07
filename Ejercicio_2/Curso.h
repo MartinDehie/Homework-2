@@ -28,6 +28,7 @@ class Curso
         bool delete_Alumno(int legajo);
         void mostrar_curso();
         string get_nombre();
+        vector<shared_ptr<Estudiante>>& getAlumnos();
         int busqueda(int legajo);
         bool is_full();
         Curso copy(Curso c);

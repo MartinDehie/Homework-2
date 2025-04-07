@@ -28,6 +28,8 @@ class Estudiante{
         string get_nombre();
         int get_legajo();
         double get_prom();
+        bool operator<(const Estudiante& otro) const ;
+        friend ostream& operator<<(ostream& os, const Estudiante& est);
 
 };
 #endif

@@ -20,10 +20,12 @@ void mostrar_menu_curso() {
     cout << "Selecciona una opcion: ";
 }
 
+
 void menu() {
     vector<Curso> cursos;
     string nombreCurso;
     int opcionPrincipal;
+    int indexCopia = -1;
 
     while (true) {
         mostrar_menu_principal();
@@ -90,11 +92,8 @@ void menu() {
                         getline(cin, nombre);
                         cout << "Legajo: ";
                         cin >> legajo;
-                        cout << "Nota: ";
-                        cin >> Nota;
                         vector<notas> califs;
 
-                        
                         double n;
                         cout << "Nota: ";
                         cin >> n;
@@ -128,12 +127,13 @@ void menu() {
 
                     } else if (opcionCurso == 5) {
                         copia = curso.copy(curso);
-                        cout << "Curso copiado exitosamente." << endl;
+                        cursos.push_back(copia);
+                        cout << "Curso copiado exitosamente y agregado a la lista de cursos." << endl;
                         cout << "Contenido del curso copiado:" << endl;
                         copia.mostrar_curso();
                     } else if (opcionCurso == 6) {
                         break;
-                    }
+                    } 
                 }
             }
 

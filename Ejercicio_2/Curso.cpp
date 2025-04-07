@@ -3,6 +3,7 @@
 
     Curso::Curso(string NN):Nombre(NN){}
     Curso::Curso():Nombre(""){}
+    vector<shared_ptr<Estudiante>>& Curso::getAlumnos(){return Alumnos;}
     string Curso:: get_nombre(){return Nombre;}
     bool Curso::add_Alumno(shared_ptr<Estudiante> alumno){
         int i = busqueda(alumno->get_legajo());
@@ -23,10 +24,12 @@
         return a->get_nombre() < b->get_nombre();
     }
     void Curso::mostrar_curso(){
-        sort(Alumnos.begin(), Alumnos.end(), comparar_por_nombre);
-        for(int i = 0;i<Alumnos.size();i++)
-            cout << Alumnos[i]->get_nombre() << endl;
-        return;
+        sort(Alumnos.begin(), Alumnos.end(),[](shared_ptr<Estudiante> a, shared_ptr<Estudiante> b) {
+                 return *a < *b;
+             });
+        for(const auto& alumno : Alumnos) {
+            cout << *alumno << endl;
+        }
     }
     int Curso::busqueda(int legajo){
         for(int i = 0;i< Alumnos.size();i++){
